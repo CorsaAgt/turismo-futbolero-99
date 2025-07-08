@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="mb-4 mt-5 text-center">Turismo Futbolero 99</h1>
+<p class="text-center">¡Vive la pasión del fútbol viajando y disfrutando de los mejores partidos!</p>
+
+<div id="carruselPartidos" class="carousel slide mb-5" data-bs-ride="carousel">
+    <div class="carousel-inner rounded shadow-lg">
+        <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='img/partido 1.png') }}" class="d-block w-50 mx-auto" alt="Partido 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/partido2.jpg') }}" class="d-block w-50 mx-auto" alt="Partido 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/partido3.jpg') }}" class="d-block w-50 mx-auto" alt="Partido 3">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carruselPartidos" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carruselPartidos" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+ <h2 id="galeria" class="text-center my-4">Galería del Estadio</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for i in range(1, 6) %}
+  <div class="col">
+    <img src="{{ url_for('static', filename='img/tribuna' ~ i ~ '.jpg') }}"
+         class="img-fluid rounded shadow border border-light"
+         alt="Tribuna {{ i }}"
+         data-bs-toggle="modal"
+         data-bs-target="#modal{{ i }}"
+         style="cursor: pointer;">
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modal{{ i }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-dark">
+        <div class="modal-body p-0">
+          <img src="{{ url_for('static', filename='img/tribuna' ~ i ~ '.jpg') }}" class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

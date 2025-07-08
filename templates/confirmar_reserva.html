@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mt-5 text-center">Confirma tu Reserva</h2>
+<div class="col-md-6 mx-auto">
+    <div class="card bg-dark text-light p-4">
+        <p><strong>Correo:</strong> {{ correo }}</p>
+        <p><strong>Partido:</strong> {{ partido }}</p>
+        <p><strong>Fecha:</strong> {{ fecha }}</p>
+        <p><strong>Cantidad:</strong> {{ cantidad }}</p>
+        <form method="POST" action="{{ url_for('confirmar_reserva') }}">
+            <input type="hidden" name="correo" value="{{ correo }}">
+            <input type="hidden" name="partido" value="{{ partido }}">
+            <input type="hidden" name="fecha" value="{{ fecha }}">
+            <input type="hidden" name="cantidad" value="{{ cantidad }}">
+            <button type="submit" class="btn btn-foot">Confirmar y Pagar</button>
+            <a href="{{ url_for('agregar_reserva') }}" class="btn btn-secondary ms-2">Editar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

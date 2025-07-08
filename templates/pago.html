@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mt-5 text-center">¡Reserva Confirmada!</h2>
+<div class="col-md-6 mx-auto text-center">
+    <p>Gracias por reservar. Pronto recibirás un correo con los detalles y el enlace de pago.</p>
+    <a href="{{ url_for('index') }}" class="btn btn-foot">Volver al inicio</a>
+</div>
+{% endblock %}

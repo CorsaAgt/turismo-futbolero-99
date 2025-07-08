@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="mb-4 mt-5 text-center">Agregar Cliente</h2>
+<form method="POST" class="col-md-6 mx-auto">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input type="text" name="nombre" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="correo" class="form-label">Correo electrónico</label>
+        <input type="email" name="correo" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label for="telefono" class="form-label">Teléfono</label>
+        <input type="text" name="telefono" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar Cliente</button>
+    <a href="{{ url_for('ver_clientes') }}" class="btn btn-secondary ms-2">Cancelar</a>
+</form>
+{% endblock %}
